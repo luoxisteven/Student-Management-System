@@ -45,30 +45,6 @@
 			<artifactId>mybatis-plus-spring-boot3-starter</artifactId>
 			<version>3.5.7</version>
 		</dependency>
-		<!--swagger-->
-		<!-- <dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.7.0</version>
-		</dependency> -->
-
-		<!--swagger-->
-		<!-- <dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-			<version>6.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.1.0</version>
-		</dependency> -->
 
 		<dependency>
 			<groupId>com.mysql</groupId>

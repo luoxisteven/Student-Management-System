@@ -1,5 +1,6 @@
 package com.example.springboot.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -14,7 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor //有参构造方法
 @TableName(value = "sys_user")  //表名
 public class User {
-    @TableId(value = "id") //主键
+    //value:主键在数据的名字 Auto:MyBatis-Plus 不会干预主键的生成，而是依赖数据库本身来生成主键。
+    @TableId(value = "id", type = IdType.AUTO) 
     private Integer id;
     private String username;
     @JsonIgnore //password不展示给前端

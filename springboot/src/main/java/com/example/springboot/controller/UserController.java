@@ -1,6 +1,8 @@
 package com.example.springboot.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap ;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,15 +43,38 @@ public class UserController{
     // 分页查询, 接口为/user/page?pageNum=1&pageSize=10
     // @RequestParam 接收
     @GetMapping("/page") 
-    public List<User> findPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize){
-        // return userMapper.findAll();
-        List<User> all = userMapper.findAll();
-		return all;
-	}
+        public Map<String, Object> findPage(@RequestParam Integer pageNum, 
+                                            @RequestParam Integer pageSize,
+                                            @RequestParam String username,
+                                            @RequestParam String email,
+                                            @RequestParam String address){
+        pageNum = (pageNum - 1) * pageSize;
+        // if (username == null){
+        //     username = "";
+        // }
+        // if (email == null){
+        //     email = "";
+        // }
+        // if (address == null){
+        //     address = "";
+        // }
+                                                
+        // username = "%" + username + "%";
+        // email = "%" + email + "%";
+        // address = "%" + address + "%";
+        Integer total = userMapper.selectTotal(username, email, address);
+        List<User> data = userMapper.selectPage(pageNum, pageSize, username, email, address);
+        Map<String, Object> res = new HashMap<>();
+        res.put("data", data);
+        res.put("total", total);
+        return res;
+        
+	}  
 
     @DeleteMapping("/{id}") //Get:localhost:9090/user/{id}
     public Integer delete(@PathVariable Integer id){ //PathVariable 就是 /{id}
         return userMapper.deleteById(id);
+        
     }
 
 }

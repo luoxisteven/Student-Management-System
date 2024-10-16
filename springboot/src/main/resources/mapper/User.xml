@@ -14,4 +14,50 @@
         </set>
         WHERE id = #{id}
     </update>
+    <!-- <select id="selectPage">
+        SELECT * FROM sys_user 
+        <where>
+            <if test="username != null and username != ''">
+                username LIKE %#{username}%
+            </if>
+            <if test="email != null and email != ''">
+                AND email LIKE %#{email}%
+            </if>
+            <if test="address != null and address != ''">
+                AND address LIKE %#{address}%
+            </if>
+        </where>
+        LIMIT #{pageNum}, #{pageSize}
+    </select> -->
+    <select id="selectPage">
+        SELECT * FROM sys_user
+        <where>
+            <if test="username != null and username != ''">
+                username LIKE CONCAT('%', #{username}, '%')
+            </if>
+            <if test="email != null and email != ''">
+                AND email LIKE CONCAT('%', #{email}, '%')
+            </if>
+            <if test="address != null and address != ''">
+                AND address LIKE CONCAT('%', #{address}, '%')
+            </if>
+        </where>
+        LIMIT #{pageNum}, #{pageSize}
+    </select>
+    <select id="selectTotal">
+        SELECT count(*) FROM sys_user 
+        <where>
+            <if test="username != null and username != ''">
+                username LIKE CONCAT('%', #{username}, '%')
+            </if>
+            <if test="email != null and email != ''">
+                AND email LIKE CONCAT('%', #{email}, '%')
+            </if>
+            <if test="address != null and address != ''">
+                AND address LIKE CONCAT('%', #{address}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>
+
+

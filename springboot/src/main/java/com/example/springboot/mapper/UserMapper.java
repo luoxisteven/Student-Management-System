@@ -27,4 +27,10 @@ public interface UserMapper{
     @Delete("DELETE FROM sys_user where id = #{id}")
     Integer deleteById(@Param("id") Integer id); //Param里的"id"，跟上面#{id}是一致的
 
+    // @Select("SELECT * from sys_user where username like #{username} and email like #{email} and address like #{address} limit #{pageNum}, #{pageSize}")
+    List<User> selectPage(Integer pageNum, Integer pageSize, String username, String email, String address);
+
+    // @Select("SELECT count(*) FROM sys_user where username like #{username} and email like #{email} and address like #{address}")
+    Integer selectTotal(String username, String email, String address);
+
 }

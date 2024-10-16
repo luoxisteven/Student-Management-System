@@ -21,10 +21,6 @@ CSDN WEB: https://blog.csdn.net/cuiqwei/article/details/118188540
 2) mapper/User.xml 配置xml之后，需要配置在application.yml
 
 
-## Vue Notes
-
-
-
 ## Run
 1)  Frontend：
     - 先 `cd springboot cd vue`

@@ -28,9 +28,9 @@ public class UserController{
     private UserService userService;
 
     @PostMapping  //Post:localhost:9090/user/
-    public Boolean save(@RequestBody User user){ //RequestBody把前台的JSON对象转换成Java对象
+    public Integer save(@RequestBody User user){ //RequestBody把前台的JSON对象转换成Java对象
         // 新增或者更新
-        return userService.saveUser(user);
+        return userService.save(user);
     }
 
     @GetMapping //Get:localhost:9090/user/
@@ -49,7 +49,19 @@ public class UserController{
                                             @RequestParam String email,
                                             @RequestParam String address){
         pageNum = (pageNum - 1) * pageSize;
-
+        // if (username == null){
+        //     username = "";
+        // }
+        // if (email == null){
+        //     email = "";
+        // }
+        // if (address == null){
+        //     address = "";
+        // }
+                                                
+        // username = "%" + username + "%";
+        // email = "%" + email + "%";
+        // address = "%" + address + "%";
         Integer total = userMapper.selectTotal(username, email, address);
         List<User> data = userMapper.selectPage(pageNum, pageSize, username, email, address);
         Map<String, Object> res = new HashMap<>();

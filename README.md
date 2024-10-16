@@ -1,6 +1,6 @@
 # Management System
 - `Author:` @luoxisteven
-- `Tutor:` @qinge (@Copyright Reserve)
+- `Tutor:` @qinge (@Copyright)
 
 This is a frontend and backend project for a student management system from https://www.bilibili.com/video/BV1U44y1W77D/.
 
@@ -26,15 +26,12 @@ This is a frontend and backend project for a student management system from http
 ## Run
 1)  Frontend：
     - 先 `cd springboot cd vue`
-
     - 再vue文件夹内运行：`npm run serve`
-
-        Website：http://localhost:8080/
+    - Website：http://localhost:8080/
 
 2) Backend：
-在SpringbootApplication.java里 run 程序
-    
-    Website：http://localhost:9090/
+    - 在`SpringbootApplication.java`里run
+    - Website：http://localhost:9090/
 
 ## User
 Website: http://localhost:9090/user

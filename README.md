@@ -28,7 +28,7 @@ CSDN WEB: https://blog.csdn.net/cuiqwei/article/details/118188540
 2) Vue
 3) MySQL
 4) MyBatis
-5) MyBatis-Plus
+5) MyBatis-Plus (更加简单实现增删改查，不用SQL)
 6) Lombok
 
 
@@ -49,6 +49,8 @@ CSDN WEB: https://blog.csdn.net/cuiqwei/article/details/118188540
 Website: http://localhost:9090/user
 ```
 Postman: 
+    Get:
+        localhost:9090/user/page?pageSize=20&pageNum=1&username=&email=&address=&nickname=
     Post: (Body: JSON) 删和改都用Post
     {
         "username": "abc",

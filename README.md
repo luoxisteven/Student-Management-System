@@ -6,10 +6,13 @@ This is a frontend and backend project for a student management system from http
 
 ## Packages
 1) Springboot
+    - Website: https://spring.io/projects/spring-framework
 2) Vue
+    - Website: https://vuejs.org/guide/introduction.html
 3) MySQL
 4) MyBatis
 5) MyBatis-Plus 
+    - Website: https://mybatis.plus/
     - 更加简单实现增删改查，不用SQL
 6) Lombok
     - 简化构造方法，构造函数
@@ -18,18 +21,18 @@ This is a frontend and backend project for a student management system from http
 1) Vue
     - vue create \<filename>
 2) SpringBoot
-    - Install Extension `Spring Initializr Java Support`
+    - vscode: Install Extension `"Spring Initializr Java Support"`
     - 在搜索框输入 `>`
     - 在输入 `vscode-spring-initializr`
     - 点击 `Spring Initializr: Create a Maven Project`
 
 ## Run
-1)  Frontend：
-    - 先 `cd springboot cd vue`
+1)  Frontend (Vue)：
+    - 先 `cd 到vue文件夹内`
     - 再vue文件夹内运行：`npm run serve`
     - Website：http://localhost:8080/
 
-2) Backend：
+2) Backend (Springboot)：
     - 在`SpringbootApplication.java`里run
     - Website：http://localhost:9090/
 

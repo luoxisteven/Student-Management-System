@@ -90,6 +90,7 @@ public class UserController{
             queryWrapper.like("phone", phone);
         }
         
+        queryWrapper.orderByDesc("id");
         // queryWrapper.or().like("address", address);
         return userService.page(page, queryWrapper);
      }
@@ -98,6 +99,12 @@ public class UserController{
     public boolean delete(@PathVariable Integer id){ //PathVariable 就是 /{id}
         // return userMapper.deleteById(id); //普通MyBatis:int
         return userService.removeById(id); //MyBatis-Plus接口 extends ServiceImpl<UserMapper, User>
+        
+    }
+
+    @PostMapping("/del/batch") //Get:localhost:9090/user/{id}
+    public boolean deleteBatch(@RequestBody List<Integer> ids){ 
+        return userService.removeBatchByIds(ids);
         
     }
 

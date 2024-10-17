@@ -9,6 +9,11 @@ This is a frontend and backend project for a student management system from http
     - Website: https://spring.io/projects/spring-framework
 2) Vue
     - Website: https://vuejs.org/guide/introduction.html
+    - ElementUI
+    - Axios
+        - 安装 `npm i axios -s`
+        - 查看是否安装好Axios: npm list axios
+        - 配置 `request.js`
 3) MySQL
 4) MyBatis
 5) MyBatis-Plus 

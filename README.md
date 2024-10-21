@@ -1,4 +1,4 @@
-# Management System
+# Student Management System
 - `Author:` @luoxisteven
 - `Tutor:` @qinge (@Copyright)
 
@@ -19,6 +19,7 @@ This is a frontend and backend project for a student management system from http
 5) MyBatis-Plus 
     - Website: https://mybatis.plus/
     - 更加简单实现增删改查，不用SQL
+    - Code Generator (Apache Velocity)
 6) Lombok
     - 简化构造方法，构造函数
 
@@ -33,7 +34,7 @@ This is a frontend and backend project for a student management system from http
 
 ## Run
 1)  Frontend (Vue)：
-    - 先 `cd 到vue文件夹内`
+    - 先 `cd到vue文件夹内`
     - 再vue文件夹内运行：`npm run serve`
     - Website：http://localhost:8080/
 

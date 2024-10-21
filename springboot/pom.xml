@@ -45,6 +45,17 @@
 			<artifactId>mybatis-plus-spring-boot3-starter</artifactId>
 			<version>3.5.7</version>
 		</dependency>
+		<!-- Mybatis-Plus 代码生成器，再加上Velocity-->
+		<!-- <dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-generator</artifactId>s
+			<version>3.5.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency> -->
 
 		<dependency>
 			<groupId>com.mysql</groupId>

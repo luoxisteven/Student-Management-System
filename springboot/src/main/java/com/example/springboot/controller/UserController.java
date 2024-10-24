@@ -3,6 +3,8 @@ package com.example.springboot.controller;
 import java.util.List;
 // import java.util.Map;
 // import java.util.HashMap;
+import java.net.URLEncoder;
+import java.io.InputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -20,6 +23,13 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot.entity.User;
 // import com.example.springboot.mapper.UserMapper;
 import com.example.springboot.service.UserService;
+
+import cn.hutool.poi.excel.ExcelReader;
+import cn.hutool.poi.excel.ExcelUtil;
+import cn.hutool.poi.excel.ExcelWriter;
+import jakarta.servlet.ServletOutputStream;
+// import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @RestController // Controller
 @RequestMapping("/user") // Localhost:9090/user才能访问
@@ -106,6 +116,48 @@ public class UserController{
     public boolean deleteBatch(@RequestBody List<Integer> ids){ 
         return userService.removeBatchByIds(ids);
         
+    }
+
+    @GetMapping("/export")
+    public boolean expor(HttpServletResponse response) throws Exception{
+
+        // 查出所有数据
+        List<User> list = userService.list();
+        // ExcelWriter
+        ExcelWriter writer = ExcelUtil.getWriter(true);
+
+        writer.addHeaderAlias("username", "用户名");
+        writer.addHeaderAlias("nickname", "昵称"); 
+        writer.addHeaderAlias("email", "邮箱");
+        writer.addHeaderAlias("phone", "电话");
+        writer.addHeaderAlias("address", "地址");
+        writer.addHeaderAlias("createTime", "创建时间");
+        writer.addHeaderAlias("avatarUrl", "头像");
+
+        // 一次性写出list内的对象到excel，使用默认样式，强制输出标题
+        writer.write(list, true);
+
+        // 设置浏览器响应的格式（固定的）
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8");
+        String fileName = URLEncoder.encode("用户信息", "UTF-8");
+        response.setHeader("Content-Disposition", "attachment;filename="+fileName+".xlsx");
+
+        ServletOutputStream out = response.getOutputStream();
+        writer.flush(out, true);
+        out.close();
+        writer.close();
+
+        return true;
+    };
+
+
+    @PostMapping("/import")
+    public boolean impor(MultipartFile file) throws Exception {
+        InputStream inputStream = file.getInputStream();
+        ExcelReader reader = ExcelUtil.getReader(inputStream);
+        List<User> list = reader.readAll(User.class);
+        userService.saveBatch(list);
+        return true;
     }
 
 }

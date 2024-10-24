@@ -22,6 +22,8 @@ This is a frontend and backend project for a student management system from http
     - Code Generator (Apache Velocity)
 6) Lombok
     - 简化构造方法，构造函数
+7) Hutool
+    - File Writer
 
 ## Build
 1) Vue

@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     collapse(){
-      this.isCollaspe =! this.isCollaspe
+      this.isCollaspe =! this.isCollaspe;
       if(this.isCollaspe){
         this.sideWidth = 64
         this.collapseBtnClass = 'el-icon-s-unfold'

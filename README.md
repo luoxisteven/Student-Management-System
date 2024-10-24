@@ -85,3 +85,5 @@ CSDN WEB: https://blog.csdn.net/cuiqwei/article/details/118188540
 - Service 负责处理业务逻辑，连接 Controller 和数据访问层（Mapper）。
 - Mapper 负责数据库操作，连接业务逻辑层（Service）和数据库。
 
+## HTML Notes
+- 不能有多个div并行，如果要的话在最外围包上一个div

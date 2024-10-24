@@ -11,11 +11,17 @@ const routes = [
     path: '/',
     name: 'home',
     component: Manage,
+    redirect: "/home",
     children :[
       {
-        path: '/',
-        name: 'home',
-        component: Manage
+        path: 'home',
+        name: 'Home',
+        component: () => import('../views/Home.vue')
+      },
+      {
+        path: 'user',
+        name: 'User',
+        component: () => import('../views/User.vue')
       }
     ]
   },

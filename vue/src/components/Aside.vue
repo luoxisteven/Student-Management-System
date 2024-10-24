@@ -10,24 +10,21 @@
             <img src="../assets/logo.png" alt="" style="width: 20px; position: relative; top:5px; margin-right: 5px;">
             <b style="color:white" v-show="logoTextShow">后台管理系统</b>
         </div>
-            <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message"></i>
-                <span slot="title">导航一</span>
+            <el-menu-item index="1">
+            <template slot="title">
+                <i class="el-icon-house"></i>
+                <span slot="title">主页</span>
             </template>
-            <el-submenu index="1-4">
-                <template slot="title">选项4</template>
-                <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-            </el-submenu>
-            </el-submenu>
+            </el-menu-item>
+
             <el-submenu index="2">
             <template slot="title"><i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
+                <span slot="title">系统管理</span>
             </template>
-            <el-submenu index="2-4">
-                <template slot="title">选项4</template>
-                <el-menu-item index="2-4-1">选项4-1</el-menu-item>
+            <el-menu-item index="2-1"><i class="el-icon-s-custom"></i>
+                用户管理</el-menu-item>
             </el-submenu>
-            </el-submenu>
+<!--             
             <el-submenu index="3">
             <template slot="title"><i class="el-icon-setting"></i>
                 <span slot="title">导航三</span>
@@ -44,7 +41,7 @@
                 <template slot="title">选项4</template>
                 <el-menu-item index="3-4-1">选项4-1</el-menu-item>
             </el-submenu>
-            </el-submenu>
+            </el-submenu> -->
         </el-menu>
 </template>
   

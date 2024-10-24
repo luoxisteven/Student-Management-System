@@ -1,12 +1,5 @@
 <template>
     <div>
-        <div style="margin-bottom: 10px">
-            <el-breadcrumb separator="/">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
-
           <div style="padding: 10px 0;">
               <el-input style="width: 200px" placeholder="请输入名称" suffix-icon="el-icon-search" v-model="username"></el-input>
               <el-input style="width: 200px" placeholder="请输入邮箱" suffix-icon="el-icon-message" v-model="email"></el-input>

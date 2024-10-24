@@ -3,24 +3,24 @@ import VueRouter from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import Manage from '@/views/Manage.vue'
+import store from '@/store'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
     component: Manage,
     redirect: "/home",
     children :[
       {
         path: 'home',
-        name: 'Home',
+        name: '首页',
         component: () => import('../views/Home.vue')
       },
       {
         path: 'user',
-        name: 'User',
+        name: '用户管理',
         component: () => import('../views/User.vue')
       }
     ]
@@ -39,6 +39,13 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+// 路由守卫
+router.beforeEach((to,from,next)=>{
+  localStorage.setItem("currentPathName", to.name) //设置当前路由名称
+  store.commit("setPath") //触发store数据更新
+  next() //放行
 })
 
 export default router

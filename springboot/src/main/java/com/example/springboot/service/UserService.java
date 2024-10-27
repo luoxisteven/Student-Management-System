@@ -39,8 +39,11 @@ public class UserService extends ServiceImpl<UserMapper, User>{
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", userDTO.getUsername());
         queryWrapper.eq("password", userDTO.getPassword());
-        User one = getOne(queryWrapper);
-        return one != null;
+        try{
+            User one = getOne(queryWrapper);
+            return one != null;
+        } catch (Exception e){
+            return false;
+        }
     }
-
 }

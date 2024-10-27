@@ -1,0 +1,5 @@
+package com.example.springboot.service.impl;
+
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService{
+
+}

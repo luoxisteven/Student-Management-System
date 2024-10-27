@@ -6,6 +6,8 @@ import java.util.List;
 import java.net.URLEncoder;
 import java.io.InputStream;
 
+// import org.python.core.PyObject;
+// import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,13 +25,17 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot.entity.User;
 // import com.example.springboot.mapper.UserMapper;
 import com.example.springboot.service.UserService;
+import com.example.springboot.controller.dto.UserDTO;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import jakarta.servlet.ServletOutputStream;
 // import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+
 
 @RestController // Controller
 @RequestMapping("/user") // Localhost:9090/user才能访问
@@ -39,6 +45,17 @@ public class UserController{
 	// private UserMapper userMapper;
     @Autowired
     private UserService userService;
+
+    @PostMapping("/login")  //Post:localhost:9090/user/
+    public boolean login(@RequestBody UserDTO userDTO){ 
+        String username = userDTO.getUsername();
+        String password = userDTO.getPassword();
+        if(StrUtil.isBlank(username) || StrUtil.isBlank(password)){
+            return false;
+        } else {
+            return userService.login(userDTO);
+        }
+    }
 
     @PostMapping  //Post:localhost:9090/user/
     public Boolean save(@RequestBody User user){ //RequestBody把前台的JSON对象转换成Java对象
@@ -159,5 +176,18 @@ public class UserController{
         userService.saveBatch(list);
         return true;
     }
+
+    
+
+    // @GetMapping("/rfp")
+    // public String RFP(){
+    //     PythonInterpreter interpreter = new PythonInterpreter();
+    //              // 加载并执行 Python 文件
+    //     interpreter.execfile("RFP_LLM/RAG_Chain.py"); // 将路径替换为 Python 文件实际路径
+    //     PyObject myPythonClass = interpreter.get("RAG_Chain");
+    //     PyObject myPythonInstance = myPythonClass.__call__();
+    //     PyObject testResult = myPythonInstance.invoke("test");
+    //     return testResult.toString();
+    // }
 
 }

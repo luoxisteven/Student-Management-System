@@ -5,6 +5,11 @@
 
 This is a frontend and backend project for a student management system from https://www.bilibili.com/video/BV1U44y1W77D/.
 
+## Functionalities
+1) 注册与登陆
+2) 对用户进行增删改查
+3) 分页查询
+
 ## Packages
 1) Springboot
     - Website: https://spring.io/projects/spring-framework

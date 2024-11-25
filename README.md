@@ -9,6 +9,11 @@ This is a frontend and backend project for a student management system from http
 1) 注册与登陆
 2) 对用户进行增删改查
 3) 分页查询
+4) 注册与登录
+5) JWT
+
+## Website
+![layout](website_layout.jpg)  
 
 ## Packages
 1) Springboot
@@ -33,7 +38,7 @@ This is a frontend and backend project for a student management system from http
 
 ## Build
 1) Vue
-    - vue create \<filename>
+    - vue create <filename>
 2) SpringBoot
     - vscode: Install Extension `"Spring Initializr Java Support"`
     - 在搜索框输入 `>`
